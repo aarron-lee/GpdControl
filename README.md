@@ -1,6 +1,8 @@
 # GpdControl - Decky Plugin
 
-Decky Plugin that replicates some of the GpdControls functionality.
+Decky Plugin that replicates some of the Gpd WinControls functionality.
+
+![plugin image](./images/image.png)
 
 # Prerequisites
 
@@ -78,4 +80,4 @@ Built using Decky Plugin Template: https://github.com/SteamDeckHomebrew/decky-pl
 
 Vendored python dependency for hid.py
 
-- hid.py v1.0.5 by Austin Morton, MIT License. unmodified file [here](./py_modules/gpd_hid.py)
+- hid.py v1.0.5 by Austin Morton, MIT License. unmodified file [here](./py_modules/wincontrols/gpd_hid.py)
