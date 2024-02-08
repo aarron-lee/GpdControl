@@ -1,0 +1,10 @@
+{
+  "name": "GpdControl",
+  "author": "Aarron Lee",
+  "flags": ["root"],
+  "publish": {
+    "tags": ["root"],
+    "description": "plugin for GpdWin RGB, etc",
+    "image": "https://opengraph.githubassets.com/1/SteamDeckHomebrew/PluginLoader"
+  }
+}
