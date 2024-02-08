@@ -1,12 +1,11 @@
 import os
 import logging
 import decky_plugin
-import plugin_enums
 import rgb
 import file_timeout
 import plugin_update
 import plugin_settings
-from time import sleep
+import gpd_device
 
 try:
     LOG_LOCATION = f"/tmp/gpdControl.log"
@@ -30,6 +29,7 @@ class Plugin:
         try:
             results['pluginVersionNum'] = f'{decky_plugin.DECKY_PLUGIN_VERSION}'
 
+            results['deviceName'] = gpd_device.get_device_name()
         except Exception as e:
             decky_plugin.logger.error(e)
 

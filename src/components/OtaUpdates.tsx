@@ -1,17 +1,21 @@
-import { useEffect, useState } from 'react';
-import { getLatestVersionNum, getServerApi, otaUpdate } from '../backend/utils';
-import { useSelector } from 'react-redux';
-import { getPluginVersionNumSelector } from '../redux-modules/uiSlice';
+import { useEffect, useState } from "react";
+import { getLatestVersionNum, getServerApi, otaUpdate } from "../backend/utils";
+import { useSelector } from "react-redux";
+import {
+  getDeviceNameSelector,
+  getPluginVersionNumSelector,
+} from "../redux-modules/uiSlice";
 import {
   ButtonItem,
   Field,
   PanelSection,
-  PanelSectionRow
-} from 'decky-frontend-lib';
+  PanelSectionRow,
+} from "decky-frontend-lib";
 
 const OtaUpdates = () => {
-  const [latestVersionNum, setLatestVersionNum] = useState('');
+  const [latestVersionNum, setLatestVersionNum] = useState("");
   const installedVersionNum = useSelector(getPluginVersionNumSelector);
+  const deviceName = useSelector(getDeviceNameSelector);
 
   useEffect(() => {
     const fn = async () => {
@@ -30,22 +34,23 @@ const OtaUpdates = () => {
   let buttonText = `Update to ${latestVersionNum}`;
 
   if (installedVersionNum === latestVersionNum && Boolean(latestVersionNum)) {
-    buttonText = 'Reinstall Plugin';
+    buttonText = "Reinstall Plugin";
   }
 
   return (
     <PanelSection title="Updates">
       <PanelSectionRow>
-        <Field disabled label={'Installed Version'}>
-          {installedVersionNum}
-        </Field>
+        <Field label={"Installed Version"}>{installedVersionNum}</Field>
       </PanelSectionRow>
 
       {Boolean(latestVersionNum) && (
         <PanelSectionRow>
-          <Field disabled label={'Latest Version'}>
-            {latestVersionNum}
-          </Field>
+          <Field label={"Latest Version"}>{latestVersionNum}</Field>
+        </PanelSectionRow>
+      )}
+      {Boolean(deviceName) && (
+        <PanelSectionRow>
+          <Field label={"Device Name"}>{deviceName}</Field>
         </PanelSectionRow>
       )}
       {Boolean(latestVersionNum) && (
@@ -55,7 +60,7 @@ const OtaUpdates = () => {
               const serverApi = getServerApi();
               if (serverApi) otaUpdate(serverApi);
             }}
-            layout={'below'}
+            layout={"below"}
           >
             {buttonText}
           </ButtonItem>

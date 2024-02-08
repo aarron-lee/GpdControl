@@ -1,14 +1,20 @@
 import decky_plugin
 import time
-import subprocess
-import os
 import plugin_settings as settings
 from wincontrols import hardware
+import gpd_device
 
-GPD_CONFIG_PATH = f'{decky_plugin.DECKY_USER_HOME}/homebrew/plugins/GpdControl/bin/gpdconfig'
+VALID_DEVICES = [
+    gpd_device.Devices.WIN_4_6800U.value
+]
 
 # sync the state of the RGB lights to the values in settings.json
 def sync_rgb_settings(current_game_id):
+    device_name = gpd_device.get_device_name()
+
+    if device_name not in VALID_DEVICES:
+        return
+
     s = settings.get_settings()
 
     rgb_profile = s.get('rgb').get(current_game_id)
