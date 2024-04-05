@@ -12,7 +12,7 @@ cd $HOME
 
 sudo rm -rf $HOME/homebrew/plugins/GpdControl
 
-cat << EOF | sudo tee -a "/etc/udev/rules.d/99-gpd-control-kb.rules"
+cat << EOF  > "sudo tee -a "/etc/udev/rules.d/99-gpd-control-kb.rules"
 SUBSYSTEM=="hidraw", ATTRS{idVendor}=="2f24", ATTRS{idProduct}=="0135", MODE="0666"
 EOF
 
