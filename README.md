@@ -4,17 +4,9 @@ Decky Plugin that replicates some of the Gpd WinControls functionality.
 
 ![plugin image](./images/image.png)
 
-# Prerequisites
+# Features
 
-RGB control currently has been hardcoded to only work on the GPD Win 4 6800u.
-
-If you wish to test RGB control other variants of the Win 4 and get them added to this project, leave a github issue with your dmi product name
-
-you can get the product name via running:
-
-`cat /sys/devices/virtual/dmi/id/product_name`
-
-Alternatively, you can install the plugin and find the device name at the bottom of the plugin.
+- Per game RGB controls
 
 # Install
 

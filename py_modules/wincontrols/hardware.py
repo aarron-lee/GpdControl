@@ -74,7 +74,7 @@ class WinControls():
 
     field = {f.name: f for f in _fields}
 
-    def __init__(self, read=True, disableFwCheck=False):
+    def __init__(self, read=True, disableFwCheck=True):
         self.disableFwCheck = disableFwCheck
         self._openHid()
         self.loaded = False
